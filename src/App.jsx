@@ -6,7 +6,7 @@ function App() {
     {
       id: 1,
       title: 'Finish Progate React Course',
-      completed: false,
+      completed: true,
     },
     {
       id: 2,
