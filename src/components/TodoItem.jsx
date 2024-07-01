@@ -1,6 +1,6 @@
 import React from 'react'
 
-const TodoItem = ({ todo }) => {
+const TodoItem = ({ todo,toggleCompleted }) => {
   
   // Definisikan function getTodoTitleStyle di sini
   const getTodoTitleStyle = () => {
@@ -10,12 +10,18 @@ const TodoItem = ({ todo }) => {
       return { textDecoration: 'none' }
     }
   }
+//  // Definisikan function toggleCompleted di sini
+//   const toggleCompleted = () => {
+//     console.log('toggleCompleted function is called')
+//   }
 
   return (
     <div style={styles.todoItem}>
-      {/* Menambahkan checkbox */}
-      <input type="checkbox" style={styles.checkbox} />
-      {/* Panggil function getTodoTitleStyle */}
+      <input
+        type="checkbox"
+        style={styles.checkbox}
+        onChange={() => toggleCompleted(todo.id)}
+      />
       <p style={getTodoTitleStyle()}>{todo.title}</p>
     </div>
   )
@@ -25,10 +31,12 @@ const styles = {
   todoItem: {
     border: '2px solid #f4f4f4',
     fontSize: '24px',
+    // Tambahkan styles di bawah ini
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
   },
+   // Tambahkan styles di bawah ini
   checkbox: {
     marginRight: '10px',
     height: '18px',
